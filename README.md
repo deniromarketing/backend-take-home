@@ -17,54 +17,51 @@ required to:
   "success"
   ```
   - Accepts a GET request that will echo a JSON object string that contains the total views and actions for each day as well as the total
-  views and actions for all days within a given date range. Eg output:
+  views and actions for all days within a given date range. Will accept a "from" date timestamp value and a "to" date timestamp value that will act as the date range. Eg output:
   ```
   "['all_days' => ['views' => 10, 'actions' => 5], '2019-12-23' => ['views' => 3, 'actions' => 0], '2019-12-22' => ['views' => 7, 'actions' => 5]]"
   ```
-  Will accept a "from" date timestamp value and a "to" date timestamp value that will act as the date range.
   - Accepts a GET request that will echo a JSON object string that contains the total views and actions for either all
-  themes or all organizations for all days. Eg output:
+  themes or all organizations for all days. Will accept a "type" string value equal to either "organization" or "theme". That "type" will determine the parent key's value (either theme id or organization id). Eg output:
   ```
   "['1' => ['views' => 10, 'actions' => 5], '2' => ['views' => 3, 'actions' => 0], '3' => ['views' => 7, 'actions' => 5]]"
   ```
-  Will accept a "type" string value equal to either "organization" or "theme". That "type" will determine the parent key's
-  value (either theme id or organization id). 
 
-###Environment Requirements
+### Environment Requirements
  - PHP 7.X
  - SQLLite
 
 You are free to use any other supplementing frameworks, libraries, etc as you see fit. However, your solution will be tested
 using the built in PHP webserver and must meet the following guidelines:
 
-- SQLLite database contains a populated summary table and clicks table meets pruning specifications.
+- SQLLite database contains a populated summary table
+- Clicks table meets pruning specifications
 - Managing data sets in PHP. Please refrain from using non-PHP solutions such as database triggers.
 
+ ### Installing Requirements
 
- ###Installing Requirements
-
- ####PHP
+ #### PHP
  This repo requires at least PHP 7.3. This test assumes you will have access to PHP's built in webserver within the repos directory.
  For installation instructions, please see: https://www.php.net/manual/en/install.php.
  
- ####Composer
+ #### Composer
  This repo utilizes composer for package management. For installation instructions, please see: https://getcomposer.org/doc/00-intro.md.
 
- ####SQLLite 
- This repo utilizes a sqllite database in order to store the statistical information for the report page. For installation instructions,
+ #### SQLLite 
+ This repo utilizes a sqllite database in order to store the statistical information for the exercise. For installation instructions,
  please see: https://www.sqlite.org/quickstart.html. Note: this wiki assumes that the sqlite-tools package (that meets your requirements)
  was downloaded and installed.
 
 
- ###Initilizing Repo
+ ### Initilizing Repo
 
- ####Composer
+ #### Composer
   This exercise relies on the faker library. Please install it via composer by:
   ```
   #After navigating to the directory that contains this repo:
   > composer install
   ```
- ####Create and Populate Database
+ #### Create and Populate Database
   This exercise relies on a SQLLite that is prepopulated with fake data. In order to create/populate your database, please run the
   following command:
   ```
@@ -72,3 +69,10 @@ using the built in PHP webserver and must meet the following guidelines:
   > php setup.php
   ```
   This process may take a few minutes. A success message will display once the script is finished creating/populating your database.
+
+  #### Serving the Repo
+  In order to serve your repo w/ PHP's build in webserver, run the following command:
+  ```
+  #After navigating to the directory that contains this repo:
+  > php -S localhost:8000
+  ```
