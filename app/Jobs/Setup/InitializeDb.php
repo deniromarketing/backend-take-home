@@ -4,6 +4,10 @@ use App\SQLiteConnection as SQLiteConnection;
 use App\Jobs\Setup\CreateTables as CreateTables;
 use App\Jobs\Setup\SeedTables as SeedTables;
 
+if (!file_exists('db')) {
+    mkdir('db', 0777, true);
+}
+
 $pdo = (new SQLiteConnection())->connect();
 if ($pdo != null) {
     echo "Creating tables \n";
@@ -18,8 +22,8 @@ if ($pdo != null) {
         exit;
     }
 
-    if (count($tables) !== 4) {
-        echo "Only " . count($tables) . " / 4 tables created! \n";
+    if (count($tables) !== 6) {
+        echo "Only " . count($tables) . " / 6 tables created! \n";
         exit;
     }
 
