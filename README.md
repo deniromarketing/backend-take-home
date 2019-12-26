@@ -27,7 +27,7 @@ required to:
   "['1' => ['views' => 10, 'actions' => 5], '2' => ['views' => 3, 'actions' => 0], '3' => ['views' => 7, 'actions' => 5]]"
   ```
   
-  - Please commit your changes to your own *personal public repo*. Once you are ready for review, please send us the link to your repo
+- Please commit your changes to your own **personal public repo**. Once you are ready for review, please send us the link to your repo
 
 ### Environment Requirements
  - PHP 7.X
